@@ -28,6 +28,7 @@ public class HomeController {
 	}
 	@PostMapping("/users")
 	public String createUser(@Valid @RequestBody User user, Model model) {
+		
 		userRepo.save(user);
 		model.addAttribute("users", userRepo.findAll());
 		return "redirect:/users";

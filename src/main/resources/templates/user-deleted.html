@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>회원페이지</title>
+    <title>Deleted Form</title>
 	<th:block th:include="fragments/header"></th:block>
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
@@ -13,7 +13,9 @@
 
 <div class="container" style="min-height: 500px">
 	<div class="starter-template">
-        <h1>방문을 환영합니다.</h1>
+        <h1>회원탈퇴완료.
+        <span th:text="${name}">님 다음에..</span>
+		</h1>
 	</div>
 </div>
 

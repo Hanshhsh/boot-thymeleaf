@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-     <th:block th:include="fragments/header"></th:block>
+    <th:block th:include="fragments/header"></th:block>
 </head>
 
 <body>
     <!--::header part start::-->
   <th:block th:include="fragments/nav"></th:block>
   
-     <!-- <header class="main_menu home_menu">
+     <header class="main_menu home_menu">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-    </header>-->
+    </header>
     <!-- Header part end-->
 
 	<!-- breadcrumb start-->
@@ -67,8 +67,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
-							<h2>Elements</h2>
-                            <p>Home <span>//</span>회원가입</p>
+							<h2>Info</h2>
+                            <p>Home <span>//</span>정보수정</p>
                         </div>
                     </div>
                 </div>
@@ -79,38 +79,31 @@
 
 	<div class="whole-wrap">
 		<div class="container box_1170">
-
-
-
-
-
-
-
 			<div class="section-top-border">
 				<div class="row">
 					<div class="col-lg-2 col-md-2 mt-sm-30">
 					</div>
 					<div class="col-lg-8 col-md-8">
-						<h3 class="mb-30">회원가입화면</h3>
-						<!--  
-						<form th:action="@{'/login'}" th:method="post">
-						-->
-						<form action="/users" method="post" id="register_form">
+						<h3 class="mb-30">회원정보 확인 및 수정</h3>
+						 <form th:action="@{'/users/{id}'(id=${id})}" 
+						 th:method="put" th:object="${user}">
+						 <!-- form field의 이름은 domain 객체의  field 이름과 같아야함 -->
 							<div class="mt-10">
-								<input type="text" name="userId" placeholder="사용자 아이디" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 아이디'" required="" class="single-input">
+								<input type="text" th:field="*{userId}" name="userId" placeholder="사용자 아이디" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 아이디'" required="" class="single-input" ReadOnly>
 							</div>
 							<div class="mt-10">
-								<input type="password" name="userPw" placeholder="시용자 암호" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 암호'" required="" class="single-input">
+								<input type="password" th:field="*{userPw}" name="userPw" placeholder="사용자 암호" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 암호'" required="" class="single-input">
 							</div>
 							<div class="mt-10">
-								<input type="text" name="name" placeholder="사용자 이름" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 이름'" required="" class="single-input">
+								<input type="text" th:field="*{name}" name="name" placeholder="사용자 이름" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 이름'" required="" class="single-input">
 							</div>
 							<div class="mt-10">
-								<input type="text" name="company" placeholder="사용자 회사" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 회사'" required="" class="single-input">
+								<input type="text" th:field="*{company}" name="company" placeholder="사용자 회사" onfocus="this.placeholder = ''" onblur="this.placeholder = '사용자 회사'" required="" class="single-input">
 							</div>
 							<div class="form-group mt-3">
-							<button type="submit" class="button button-contactForm btn_4">회원가입</button>
-							</div>
+				              <button type="submit" class="button button-contactForm btn_4">
+				              	정보수정</button>
+				            </div>
 						</form>
 					</div>
 					<div class="col-lg-2 col-md-2 mt-sm-30">

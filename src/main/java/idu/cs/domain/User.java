@@ -1,37 +1,12 @@
 package idu.cs.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
+public class User { //domain object ==dto, 
 
-@Entity
-@Table(name = "user_table")
-public class User {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
-	@Column(nullable=false, length=20, unique=true)
-	// database에서 sequence number, auto increment => primary key 역할
 	private String userId;
 	private String userPw;
 	private String name;
 	private String company;
-	
-	public User() {
-		
-	}
-	public User(String userId, String userPw, String name, String company) {
-		super();
-		this.userId = userId;
-		this.userPw = userPw;
-		this.name = name;
-		this.company = company;
-	}
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -62,8 +37,5 @@ public class User {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-
-	
-	
-	
+		
 }
